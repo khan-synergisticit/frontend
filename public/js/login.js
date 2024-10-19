@@ -1,8 +1,9 @@
 const AUTH_CLIENT_URL="http://192.168.1.76:8090"
 
 
-  $('#loginForm').on('submit', function(e){
+  $('#loginbtn').on('submit', function(e){
     e.preventDefault();
+    window.location = this.action;
     $.ajax({
       url: AUTH_CLIENT_URL  + "/login",
       contentType: 'multipart/form-data',
