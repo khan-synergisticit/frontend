@@ -1,4 +1,4 @@
-const AUTH_CLIENT_URL="http://192.168.1.110:8090"
+const AUTH_CLIENT_URL="http://192.168.1.76:8090"
 
 $(function(){
   $("#userRegister").on("submit", function(e){
