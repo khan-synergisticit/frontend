@@ -3,10 +3,15 @@ services:
     build:
       context: .
     restart: always
+    networks:
+      - shopping
     ports:
       - "8080:8080"
     volumes:
-      - ./public:/usr/share/nginx/html
+      - web:/usr/share/nginx/html
+
+volumes:
+  web:
 networks:
   shopping:
     name: shopping
