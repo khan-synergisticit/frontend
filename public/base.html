@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	th:fragment="layout(content)">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+	crossorigin="anonymous">
+
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+	integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+	crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+<link rel="stylesheet" href="css/style.css">
+
+<script
+  src="https://code.jquery.com/jquery-3.7.1.min.js"
+  integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+  crossorigin="anonymous"></script>
+
+	<script
+src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/jquery.validate.min.js"></script>
+<script
+src="js/login.js" type="text/javascript"></script>
+</head>
+
+</head>
+<body>
+	<script type="text/javascript">
+		
+		
+		const queryString = window.location.search;
+		const urlParams = new URLSearchParams(queryString);
+		const auth_code = urlParams.get('code')
+		// const access_token = urlParams.get('access_token')
+		if(auth_code !== null){
+			localStorage.setItem("access_token", auth_code);
+			// fetchAccessToken(auth_code).then((res)=>{
+
+				
+			// const credential = btoa('shopping:donkey');
+			fetchUser()
+			.then(res =>{
+					console.log("res: " + JSON.stringify(res));
+					localStorage.setItem("user_email", res.email);
+					localStorage.setItem("user_id", res.id);
+					localStorage.setItem("user_role", res.role);
+					//window.location.replace("/index.html");
+			}).catch(error =>{
+				console.log("error: " + error)
+			})
+			}
+		//)}
+			
+			 
+		 
+		const role = localStorage.getItem("user_role");
+		if(role === "ROLE_ADMIN"){
+			$("#role-link").append('<a class="nav-link active" aria-current="page" href="/admin/index.html"><iclass="fa-solid fa-house"></i> Home</a>')
+		} else {
+			$("#role-link").append('<a class="nav-link active" aria-current="page" href="/index.html"><iclass="fa-solid fa-house"></i> Home</a>')
+		}
+		
+		
+  
+	</script>
+	<nav class="navbar navbar-expand-lg  bg-primary fixed-top navbar-dark">
+		<div class="container-fluid">
+			<a class="navbar-brand" href="#"><i
+				class="fa-solid fa-cart-shopping"></i> Ecom Store</a>
+			<button class="navbar-toggler" type="button"
+				data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+				aria-controls="navbarSupportedContent" aria-expanded="false"
+				aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+					
+						<li class="nav-item" id="role-link"></li>
+
+
+
+					<li class="nav-item"><a class="nav-link active"
+						aria-current="page" href="/product.html">Product</a></li>
+
+					<li class="nav-item dropdown"><a
+						class="nav-link dropdown-toggle" href="#" role="button"
+						data-bs-toggle="dropdown" aria-expanded="false"> Category </a>
+						<ul class="dropdown-menu">
+							
+
+						</ul></li>
+
+				</ul>
+
+				<ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+					
+						<li class="nav-item"><button  onclick="loginFunc()" type="button" id="loginbtn" class="btn btn-link" style="color: #ffffff;"><i
+								class="fa-solid fa-right-to-bracket" style="color: #ffffff;"></i> LOGIN</button></li>
+						<li class="nav-item"><a class="nav-link active"
+							aria-current="page" href="/register.html">REGISTER</a></li>
+
+
+					
+
+					
+
+				</ul>
+
+			</div>
+		</div>
+	</nav>
+	<!-- End Navbar -->
+
+
+</body>
+</html>
