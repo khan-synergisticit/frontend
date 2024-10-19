@@ -26,7 +26,10 @@ async function login() {
   $.ajax({
     url: url,
     contentType: 'multipart/form-data',
-    method: 'GET'
+    method: 'GET',
+    headers: {
+      'Access-Control-Allow-Origin': 'http://192.168.1.98'
+   },
   })
   // const response = await fetch(url, {
   // method: "GET",
