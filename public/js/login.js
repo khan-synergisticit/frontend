@@ -1,15 +1,39 @@
 const AUTH_CLIENT_URL="http://192.168.1.76:8090"
 
+
+  $('#loginForm').on('submit', function(e){
+    e.preventDefault();
+    $.ajax({
+      url: AUTH_CLIENT_URL  + "/login",
+      contentType: 'multipart/form-data',
+      method: 'GET',
+      headers: {
+        'Access-Control-Allow-Origin': 'http://192.168.1.99'
+     },
+      success: function(data, statu, xhr){
+        console.log("data: " + JSON.stringify(data))
+      }
+    }).fail(function(e){
+      console.log("fail: " + JSON.stringify(e))
+    })
+
+  })
+
+
 async function login() {
   var url = AUTH_CLIENT_URL + "/login";
-  console.log("token: " + token)
-  const response = await fetch(url, {
-  method: "GET",
-  headers: {
-     "Content-Type": "multipart/form-data",
-  },
+  $.ajax({
+    url: url,
+    contentType: 'multipart/form-data',
+    method: 'GET'
   })
-    return await response.json();
+  // const response = await fetch(url, {
+  // method: "GET",
+  // headers: {
+  //    "Content-Type": "multipart/form-data",
+  // },
+  // })
+  //   return await response.json();
 }
 
 var loginFunc =()=>{
