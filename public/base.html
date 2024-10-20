@@ -33,27 +33,27 @@ src="js/login.js" type="text/javascript"></script>
 	<script type="text/javascript">
 		
 		
-		const queryString = window.location.search;
-		const urlParams = new URLSearchParams(queryString);
-		const auth_code = urlParams.get('code')
+		// const queryString = window.location.search;
+		// const urlParams = new URLSearchParams(queryString);
+		// const auth_code = urlParams.get('code')
 		// const access_token = urlParams.get('access_token')
-		if(auth_code !== null){
-			localStorage.setItem("access_token", auth_code);
-			// fetchAccessToken(auth_code).then((res)=>{
+		// if(auth_code !== null){
+		// 	localStorage.setItem("access_token", auth_code);
+		// 	// fetchAccessToken(auth_code).then((res)=>{
 
 				
-			// const credential = btoa('shopping:donkey');
-			fetchUser()
-			.then(res =>{
-					console.log("res: " + JSON.stringify(res));
-					localStorage.setItem("user_email", res.email);
-					localStorage.setItem("user_id", res.id);
-					localStorage.setItem("user_role", res.role);
-					//window.location.replace("/index.html");
-			}).catch(error =>{
-				console.log("error: " + error)
-			})
-			}
+		// 	// const credential = btoa('shopping:donkey');
+		// 	fetchUser()
+		// 	.then(res =>{
+		// 			console.log("res: " + JSON.stringify(res));
+		// 			localStorage.setItem("user_email", res.email);
+		// 			localStorage.setItem("user_id", res.id);
+		// 			localStorage.setItem("user_role", res.role);
+		// 			//window.location.replace("/index.html");
+		// 	}).catch(error =>{
+		// 		console.log("error: " + error)
+		// 	})
+		// 	}
 		//)}
 			
 			 
