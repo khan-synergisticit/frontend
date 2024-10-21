@@ -15,64 +15,17 @@
 	crossorigin="anonymous" referrerpolicy="no-referrer" />
 
 <link rel="stylesheet" href="/css/style.css">
+<script>
+	$(function(){
+      $("#includedContent").load("base.html"); 
+    });
+</script>
 </head>
 <body>
+	<div id="includedContent"></div>
+
 	<!-- Start Navbar  -->
-	<nav class="navbar navbar-expand-lg  bg-primary fixed-top navbar-dark">
-		<div class="container-fluid">
-			<a class="navbar-brand" href="#"><i
-				class="fa-solid fa-cart-shopping"></i> Ecom Store</a>
-			<button class="navbar-toggler" type="button"
-				data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-				aria-controls="navbarSupportedContent" aria-expanded="false"
-				aria-label="Toggle navigation">
-				<span class="navbar-toggler-icon"></span>
-			</button>
-			<div class="collapse navbar-collapse" id="navbarSupportedContent">
-				<ul class="navbar-nav me-auto mb-2 mb-lg-0">
-					
-						<li class="nav-item"><a class="nav-link active"
-							aria-current="page" href="/"><i class="fa-solid fa-house"></i>
-								Home</a></li>
-					
-
-					
-
-
-
-					<li class="nav-item"><a class="nav-link active"
-						aria-current="page" href="/products">Product</a></li>
-
-					<li class="nav-item dropdown"><a
-						class="nav-link dropdown-toggle" href="#" role="button"
-						data-bs-toggle="dropdown" aria-expanded="false"> Category </a>
-						<ul class="dropdown-menu">
-							
-
-						</ul></li>
-
-				</ul>
-
-				<ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-					
-						<li class="nav-item"><a class="nav-link active"
-							aria-current="page" href="/signin"><i
-								class="fa-solid fa-right-to-bracket"></i> LOGIN</a></li>
-						<li class="nav-item"><a class="nav-link active"
-							aria-current="page" href="/register">REGISTER</a></li>
-
-
-					
-
-					
-
-				</ul>
-
-			</div>
-		</div>
-	</nav>
-	<!-- End Navbar -->
-
+	
 	<section>
 		<div class="container p-5">
 			<p class="text-center fs-3 mt-4">Admin Dashboard</p>
