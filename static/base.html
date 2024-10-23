@@ -32,7 +32,7 @@ src="js/login.js" type="text/javascript"></script>
 <body>
 	<script type="text/javascript">
 		const token = getCookie('access_token');
-  console.log("cookie")
+  console.log("cookie" + token)
 	if(token != null){
 		console.log('token:', token);
 		localStorage.setItem("access_token", token);
