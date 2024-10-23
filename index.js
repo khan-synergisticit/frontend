@@ -19,13 +19,13 @@ router.use(function (req,res,next) {
   console.log("res: " + JSON.stringify(res.header))
   next();
 });
-
-
-app.useStaticAssets({
-  root: path.join(__dirname, '..', 'public'),
-  prefix: '/public/',
+router.get('/', function(req,res){
+  res.sendFile(paths + 'index.html');
 });
 
+
+
+app.use(express.static('static'))
 app.use('/', router)
 app.listen(port, function () {
   console.log('Shopping app listening on port 8080!')
