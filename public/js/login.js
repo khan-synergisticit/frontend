@@ -2,9 +2,9 @@
 async function logout(){
   var url = "http://192.168.1.76:8090/logout";
   localStorage.removeItem("access_token");
-  localStorage.removeItem("user_email", res.email);
-	localStorage.removeItem("user_id", res.id);
-	localStorage.removeItem("user_role", res.role);
+  localStorage.removeItem("user_email");
+	localStorage.removeItem("user_id");
+	localStorage.removeItem("user_role");
   await fetch(url, {
   method: "GET",
   credentials: "include",
