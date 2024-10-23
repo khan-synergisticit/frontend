@@ -8,8 +8,8 @@ async function logout(){
   await fetch(url, {
   method: "GET",
   credentials: "include",
+  mode: "no-cors",
   headers: {
-     'Authorization': "Bearer " + token,
      'Content-Type': 'application/x-www-form-urlencoded'
   }
   })
