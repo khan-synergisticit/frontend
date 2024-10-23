@@ -1,6 +1,6 @@
 
 async function logout(){
-  var url = "http://127.0.0.1:8090/logout";
+  var url = "http://192.168.1.76:8090/logout";
   localStorage.removeItem("access_token");
   localStorage.removeItem("user_email", res.email);
 	localStorage.removeItem("user_id", res.id);
