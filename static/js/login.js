@@ -1,3 +1,4 @@
+const { default: axios } = require("axios");
 
 
 async function logout(){
@@ -40,7 +41,7 @@ async function fetchUser() {
   var url = "/api/user/find";
   const token = localStorage.getItem("access_token");
   console.log("token: " + token)
-  const response = await axiosInstance.get(url, {
+  const response = await axios.get(url, {
 
   credentials: "include",
   headers: {
@@ -90,7 +91,7 @@ function init(){
 	}
 }
 
-const axiosInstance = axios.create({
+axios.create({
   baseURL: 'https://192.168.1.76:8090/',
   timeout: 1000,
 }).interceptors.request.use(function (config) {
