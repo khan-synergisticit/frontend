@@ -1,5 +1,7 @@
-let path = require("path"), //path module of node framework
-HtmlWebpackPlugin = require('html-webpack-plugin'),
+import path from 'path';
+ //path module of node framework
+// HtmlWebpackPlugin = require('html-webpack-plugin'),
+import HtmlWebpackPlugin from 'html-webpack-plugin';
 
 config = {
     resolve: {
