@@ -7,7 +7,7 @@ const app = express();
 const router = express.Router();
 const __filename = fileURLToPath(import.meta.url); 
 const __dirname = path.dirname(__filename); 
-
+const paths = __dirname + '/public/';
 
 app.use(cookieParser());
 
@@ -20,7 +20,7 @@ router.use(function (req,res,next) {
   next();
 });
 router.get('/', function(req,res){
-  res.sendFile(path + 'index.html');
+  res.sendFile(paths + 'index.html');
 });
 
 
