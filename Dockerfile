@@ -1,6 +1,6 @@
 FROM node:latest 
 
-WORKDIR /
+WORKDIR /app
 
 
 COPY package*.json ./
@@ -11,4 +11,4 @@ COPY --chown=node:node . .
 
 EXPOSE 8080
 
-CMD ["node", "index.js"] 
+CMD ["npm", "run", "start"] 

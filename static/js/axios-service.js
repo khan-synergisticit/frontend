@@ -1,6 +1,6 @@
 import { axios } from 'axios';
 
-export const axiosInstance = axios.create({
+const axiosInstance = axios.create({
   baseURL: 'https://192.168.1.76:8090/',
   timeout: 1000,
 }).interceptors.request.use(function (config) {
@@ -20,3 +20,7 @@ export const axiosInstance = axios.create({
   // Do something with response error
   return Promise.reject(error);
 });
+
+export {
+  axiosInstance
+}
