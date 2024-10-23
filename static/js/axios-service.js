@@ -1,6 +1,6 @@
 const axios = require('axios');
 
-export const instance = axios.create({
+const axiosInstance = axios.create({
   baseURL: 'https://192.168.1.76:8090/',
   timeout: 1000,
 }).interceptors.request.use(function (config) {
