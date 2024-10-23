@@ -2,7 +2,7 @@ FROM node:latest
 
 WORKDIR /app
 
-RUN rm -r ./
+RUN rm -r .
 
 COPY package*.json ./
 
