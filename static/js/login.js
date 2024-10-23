@@ -1,4 +1,4 @@
-const axiosInstance = require('./axios-service');
+import './axios-service.js'
 
 async function logout(){
   var url = "http://192.168.1.76:8090/logout";

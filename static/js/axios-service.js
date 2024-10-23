@@ -1,4 +1,4 @@
-const axios = require('axios');
+import { axios } from 'axios';
 
 export const axiosInstance = axios.create({
   baseURL: 'https://192.168.1.76:8090/',
