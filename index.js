@@ -1,10 +1,9 @@
-const express = require('express');
-const path = __dirname + '/static/';
-const cors = require('cors');
+import express from 'express'
+import cookieParser from 'cookie-parser';
+import cors from 'cors';
 const app = express();
-const axios = require('axios');
 const router = express.Router();
-var cookieParser = require('cookie-parser');
+const path = __dirname + '/static/';
 
 
 app.use(cookieParser());
