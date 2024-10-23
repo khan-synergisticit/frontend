@@ -1,6 +1,13 @@
-FROM nginx:alpine
-RUN rm -r /usr/share/nginx/html
-COPY ./public /usr/share/nginx/html
-COPY nginx.conf /etc/nginx/nginx.conf
+FROM node:latest 
 
-# CMD ["nginx", "-g", "daemon off;"]
+WORKDIR /app
+
+COPY package*.json ./
+
+RUN npm install
+
+COPY . .
+
+EXPOSE 3000
+
+CMD ["node", "index.js"] 
