@@ -14,7 +14,6 @@ router.use(function (req,res,next) {
   console.log('/' + req.method);
   console.log("req: " + JSON.stringify(req.cookies))
   console.log("res: " + JSON.stringify(res.header))
-  console.log("next: " + JSON.stringify(resnext))
   next();
 });
 router.get('/', function(req,res){
