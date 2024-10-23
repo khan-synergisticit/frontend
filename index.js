@@ -17,16 +17,7 @@ router.get('/', function(req,res){
   res.sendFile(path + 'index.html');
 });
 
-app.get('/', function (req, res) {
-  if(req.cookies !== null){
-    console.log('Cookies: ', req.cookies)
-  }
-  if(req.signedCookies !== null){
-    console.log('Signed Cookies: ', req.signedCookies)
-  }
 
-  
-})
 
 
 app.use(express.static(path))
