@@ -72,6 +72,7 @@ function getCookie(name) {
 }
 function init(){
   const token = getCookie('access_token');
+  console.log("cookie")
 	if(token != null){
 		console.log('token:', token);
 		localStorage.setItem("access_token", token);

@@ -6,7 +6,7 @@ services:
     networks:
       - shopping
     ports:
-      - "8080:8080"
+      - "8080:8080" 
 
 networks:
   shopping:
