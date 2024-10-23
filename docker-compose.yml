@@ -10,8 +10,6 @@ services:
     volumes:
       - ./web:/usr/share/nginx/html
 
-volumes:
-  web:
 networks:
   shopping:
     external: true
