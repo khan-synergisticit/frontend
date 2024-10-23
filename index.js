@@ -21,7 +21,7 @@ app.get('/', function (req, res) {
   if(req.cookies !== null){
     console.log('Cookies: ', req.cookies)
   }
-  if(req.signedCookies){
+  if(req.signedCookies !== null){
     console.log('Signed Cookies: ', req.signedCookies)
   }
 
