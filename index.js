@@ -11,6 +11,9 @@ app.use(cors());
 const port = 8080;
 router.use(function (req,res,next) {
   console.log('/' + req.method);
+  console.log("req: " + JSON.stringify(req))
+  console.log("res: " + JSON.stringify(res))
+  console.log("next: " + JSON.stringify(resnext))
   next();
 });
 router.get('/', function(req,res){
