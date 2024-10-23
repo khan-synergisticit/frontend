@@ -18,9 +18,14 @@ router.get('/', function(req,res){
 });
 
 app.get('/', function (req, res) {
-  console.log('Cookies: ', req.cookies)
+  if(req.cookies !== null){
+    console.log('Cookies: ', req.cookies)
+  }
+  if(req.signedCookies){
+    console.log('Signed Cookies: ', req.signedCookies)
+  }
 
-  console.log('Signed Cookies: ', req.signedCookies)
+  
 })
 
 
