@@ -34,7 +34,7 @@ app.listen(port, function () {
   console.log('Shopping app listening on port 8080!')
 })
 
-axiosInstance.get("192.168.1.76:8090")
+axiosInstance.get("")
 .then((data)=>{
   console.log("Data: " + JSON.stringify(data))
 })
