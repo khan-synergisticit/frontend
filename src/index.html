@@ -46,22 +46,7 @@ src="js/login.js" type="text/javascript">
 	<div id="includedContent"></div>
 	<!-- End Navbar -->
 	<script type="text/javascript">
-					const token = getCookie('access_token');
-  console.log("cookie" + token)
-	if(token != null){
-		console.log('token:', token);
-		localStorage.setItem("access_token", token);
-			fetchUser()
-			.then(res =>{
-					console.log("res: " + JSON.stringify(res));
-					localStorage.setItem("user_email", res.email);
-					localStorage.setItem("user_id", res.id);
-					localStorage.setItem("user_role", res.role);
-			}).catch(error =>{
-				console.log("error: " + error)
-			})
-	}
-
+		
 </script>
 	<section>
 		<!-- Start Slider  -->

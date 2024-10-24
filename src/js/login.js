@@ -69,11 +69,11 @@ function getCookie(name) {
   return null;
 }
 function init(){
-  const token = getCookie('access_token');
-  console.log("cookie")
-	if(token != null){
-		console.log('token:', token);
-		localStorage.setItem("access_token", token);
+  const urlParams = new URLSearchParams(window.location.search);
+		const code = urlParams.get('code');
+	if(code != null){
+		console.log('token:', code);
+		localStorage.setItem("access_token", code);
 			fetchUser()
 			.then(res =>{
 					console.log("res: " + JSON.stringify(res));
