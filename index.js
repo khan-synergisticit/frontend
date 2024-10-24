@@ -7,7 +7,7 @@ const app = express();
 const router = express.Router();
 const __filename = fileURLToPath(import.meta.url); 
 const __dirname = path.dirname(__filename); 
-const paths = __dirname + '/public/';
+const paths = __dirname + '/src/';
 
 app.use(cookieParser());
 
@@ -25,7 +25,7 @@ router.get('/', function(req,res){
 
 
 
-app.use(express.static('static'))
+app.use(express.static('src'))
 app.use('/', router)
 app.listen(port, function () {
   console.log('Shopping app listening on port 8080!')
