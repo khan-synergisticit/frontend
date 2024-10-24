@@ -84,6 +84,7 @@ function init(){
 					localStorage.setItem("user_email", res.email);
 					localStorage.setItem("user_id", res.id);
 					localStorage.setItem("user_role", res.role);
+          window.location.reload();
 			}).catch(error =>{
 				console.log("error: " + error)
 			})
