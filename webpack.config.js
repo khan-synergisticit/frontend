@@ -39,7 +39,7 @@ var config = {
             }
         ]
     },
-    plugins: [new HtmlWebpackPlugin({ template: './app/static/index.html' })] //localhost:9090 - loads this html
+    plugins: [new HtmlWebpackPlugin({ template: 'static/index.html' })] //localhost:9090 - loads this html
 }
 
 export default config
