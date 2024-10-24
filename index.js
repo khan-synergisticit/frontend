@@ -27,8 +27,17 @@ router.get('/', function(req,res){
 
 
 
+
 app.use(express.static('src'))
 app.use('/', router)
 app.listen(port, function () {
   console.log('Shopping app listening on port 8080!')
+})
+
+axiosInstance.get("192.168.1.76:8090")
+.then((data)=>{
+  console.log("Data: " + JSON.stringify(data))
+})
+.catch((error)=>{
+  console.log("Error: " + JSON.stringify(error))
 })
