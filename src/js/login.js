@@ -2,10 +2,7 @@
 async function logout(){
   var url = "http://192.168.1.76:8090/logout";
   const token = localStorage.getItem("access_token");
-  localStorage.removeItem("access_token");
-  localStorage.removeItem("user_email");
-	localStorage.removeItem("user_id");
-	localStorage.removeItem("user_role");
+  
   await fetch(url, {
   method: "GET",
   credentials: "include",
@@ -14,6 +11,12 @@ async function logout(){
     "Authorization": "Bearer " + token,
      'Content-Type': 'application/x-www-form-urlencoded'
   }
+  }).then((data)=>{
+    console.log("logout: " + JSON.stringify(data));
+    localStorage.removeItem("access_token");
+    localStorage.removeItem("user_email");
+    localStorage.removeItem("user_id");
+    localStorage.removeItem("user_role");
   })
 }
 
