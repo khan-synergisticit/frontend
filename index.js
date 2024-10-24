@@ -8,7 +8,7 @@ const router = express.Router();
 const __filename = fileURLToPath(import.meta.url); 
 const __dirname = path.dirname(__filename); 
 const paths = __dirname + '/src/';
-
+const adminPaths = paths + 'admin'
 import {axiosInstance} from './src/js/axios-service.js';
 
 app.use(cookieParser());
@@ -26,6 +26,10 @@ router.get('/', function(req,res){
   console.log(JSON.stringify("Header: " + res.header));
 });
 
+router.get('/admin', function(req,res){
+  res.sendFile(adminPaths + 'index.html');
+  console.log(JSON.stringify("Header: " + res.header));
+});
 
 
 

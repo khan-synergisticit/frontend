@@ -17,6 +17,7 @@ async function logout(){
     localStorage.removeItem("user_email");
     localStorage.removeItem("user_id");
     localStorage.removeItem("user_role");
+    window.location.replace("http://192.168.1.69:8080");
   })
 }
 
