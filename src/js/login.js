@@ -1,6 +1,7 @@
 
 async function logout(){
   var url = "http://192.168.1.76:8090/logout";
+  const token = localStorage.getItem("access_token");
   localStorage.removeItem("access_token");
   localStorage.removeItem("user_email");
 	localStorage.removeItem("user_id");
@@ -10,6 +11,7 @@ async function logout(){
   credentials: "include",
   mode: "no-cors",
   headers: {
+    "Authorization": "Bearer " + token,
      'Content-Type': 'application/x-www-form-urlencoded'
   }
   })
