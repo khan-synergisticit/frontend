@@ -36,6 +36,7 @@ router.get('/admin', function(req,res){
 
 
 app.use("/", express.static(__dirname + '/src'))
+app.use("/admin", express.static(__dirname + '/src'))
 app.use('/', router)
 app.listen(port, function () {
   console.log('Shopping app listening on port 8080!')
