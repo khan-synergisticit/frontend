@@ -39,6 +39,7 @@ async function fetchUser() {
   var url = "http://192.168.1.76:8090/api/user/find";
   // const token = localStorage.getItem("access_token");
   // console.log("token: " + token)
+  console.log("fetching user...")
   const response = await fetch.get(url, {
 
   credentials: "include",
