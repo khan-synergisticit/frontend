@@ -6,7 +6,7 @@ const __dirname = path.dirname(__filename);
 // HtmlWebpackPlugin = require('html-webpack-plugin'),
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 
-config = {
+var config = {
     resolve: {
         fallback: { crypto: false },
     },
