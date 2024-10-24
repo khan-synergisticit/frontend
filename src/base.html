@@ -29,7 +29,7 @@ src="js/login.js" type="text/javascript"></script>
 
 </head>
 <body>
-	<script type="text/javascript">
+	<!-- <script type="text/javascript">
 		const token = getCookie('access_token');
   console.log("cookie" + token)
 	if(token != null){
@@ -44,7 +44,7 @@ src="js/login.js" type="text/javascript"></script>
 			}).catch(error =>{
 				console.log("error: " + error)
 			})
-	}
+	} -->
 		const role = localStorage.getItem("user_role");
 		console.log("role: " + role)
 		if(role === "ROLE_ADMIN"){

@@ -23,7 +23,10 @@
 	<script
 src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/jquery.validate.min.js"></script>
 <script
-src="js/login.js" type="text/javascript"></script>
+src="js/login.js" type="text/javascript">
+
+	fetchUser();
+</script>
 
 <script  type="text/javascript">
 
@@ -34,9 +37,8 @@ src="js/login.js" type="text/javascript"></script>
 		// init();
     $(function(){
       $("#includedContent").load("base.html"); 
-			
-
     });
+
     </script> 
 </head>
 <body>
@@ -45,10 +47,7 @@ src="js/login.js" type="text/javascript"></script>
 	<!-- End Navbar -->
 	<script type="text/javascript">
 		
-		fetch("https://192.168.1.76:8090").then((response) => {
-  console.log( "getset " + response.headers.getSetCookie());
-  // No header values returned
-});
+
 </script>
 	<section>
 		<!-- Start Slider  -->

@@ -36,11 +36,3 @@ app.use('/', router)
 app.listen(port, function () {
   console.log('Shopping app listening on port 8080!')
 })
-
-axiosInstance.get("")
-.then((data)=>{
-  console.log("Data: " + JSON.stringify(data))
-})
-.catch((error)=>{
-  console.log("Error: " + JSON.stringify(error))
-})
