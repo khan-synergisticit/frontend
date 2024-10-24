@@ -27,7 +27,7 @@ router.get('/', function(req,res){
 });
 
 router.get('/admin', function(req,res){
-  res.sendFile(adminPaths + 'index.html');
+  res.sendFile(paths + 'index.html');
   console.log(JSON.stringify("Header: " + res.header));
 });
 
@@ -35,7 +35,7 @@ router.get('/admin', function(req,res){
 
 
 
-app.use(express.static('src'))
+app.use("/", express.static(__dirname + '/src'))
 app.use('/', router)
 app.listen(port, function () {
   console.log('Shopping app listening on port 8080!')
