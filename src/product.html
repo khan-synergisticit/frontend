@@ -37,6 +37,9 @@ src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/jquery.validate.
 <div id="includedContent"></div>
 <script>
 	fetchProducts()
+	.then((data)=>{
+    console.log("Products: " + JSON.stringify(data));
+  })
 </script>
 	<section>
 	
