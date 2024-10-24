@@ -25,12 +25,7 @@ src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/jquery.validate.
 <script
 src="js/login.js" type="text/javascript">
 
-	fetchUser()
-	.then((data)=>{
-		console.log("data: " + JSON.stringify(data))
-	}).catch((error)=>{
-		console.log("err: " + JSON.stringify(error))
-	})
+
 </script>
 
 <script  type="text/javascript">
@@ -51,7 +46,12 @@ src="js/login.js" type="text/javascript">
 	<div id="includedContent"></div>
 	<!-- End Navbar -->
 	<script type="text/javascript">
-		
+			fetchUser()
+	.then((data)=>{
+		console.log("data: " + JSON.stringify(data))
+	}).catch((error)=>{
+		console.log("err: " + JSON.stringify(error))
+	})
 
 </script>
 	<section>
