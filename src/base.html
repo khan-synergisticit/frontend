@@ -25,27 +25,8 @@
 	<script
 src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/jquery.validate.min.js"></script>
 <script 
-type="text/javascript"></script>
-
-</head>
-<body>
-	<script src="js/login.js"  type="text/javascript">
-		const token = getCookie('access_token');
-  	console.log("cookie: " + token);
-	// if(token != null){
-	// 	console.log('token:', token);
-	// 	localStorage.setItem("access_token", token);
-	// 		fetchUser()
-	// 		.then(res =>{
-	// 				console.log("res: " + JSON.stringify(res));
-	// 				localStorage.setItem("user_email", res.email);
-	// 				localStorage.setItem("user_id", res.id);
-	// 				localStorage.setItem("user_role", res.role);
-	// 		}).catch(error =>{
-	// 			console.log("error: " + error)
-	// 		})
-	// }
-		const role = localStorage.getItem("user_role");
+src="js/login.js" type="text/javascript">
+const role = localStorage.getItem("user_role");
 		console.log("role: " + role);
 		
 
@@ -61,6 +42,27 @@ type="text/javascript"></script>
 			$("#role-link").append('<a class="nav-link active" aria-current="page" href="/index.html"><iclass="fa-solid fa-house"></i> Home</a>')
 		}
 		}
+</script>
+
+</head>
+<body>
+	<script type="text/javascript">
+		const token = getCookie('access_token');
+  	console.log("cookie: " + token);
+	// if(token != null){
+	// 	console.log('token:', token);
+	// 	localStorage.setItem("access_token", token);
+	// 		fetchUser()
+	// 		.then(res =>{
+	// 				console.log("res: " + JSON.stringify(res));
+	// 				localStorage.setItem("user_email", res.email);
+	// 				localStorage.setItem("user_id", res.id);
+	// 				localStorage.setItem("user_role", res.role);
+	// 		}).catch(error =>{
+	// 			console.log("error: " + error)
+	// 		})
+	// }
+		
 		
 	</script>
 	<nav class="navbar navbar-expand-lg  bg-primary fixed-top navbar-dark">
