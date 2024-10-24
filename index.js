@@ -9,7 +9,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename); 
 const paths = __dirname + '/src/';
 
-// import {axiosInstance} from './src/js/axios-service.js';
+import {axiosInstance} from './src/js/axios-service.js';
 
 app.use(cookieParser());
 
@@ -29,16 +29,18 @@ router.get('/', function(req,res){
 
 
 
+
+
 app.use(express.static('src'))
 app.use('/', router)
 app.listen(port, function () {
   console.log('Shopping app listening on port 8080!')
 })
 
-// axiosInstance.get("")
-// .then((data)=>{
-//   console.log("Data: " + JSON.stringify(data))
-// })
-// .catch((error)=>{
-//   console.log("Error: " + JSON.stringify(error))
-// })
+axiosInstance.get("")
+.then((data)=>{
+  console.log("Data: " + JSON.stringify(data))
+})
+.catch((error)=>{
+  console.log("Error: " + JSON.stringify(error))
+})
