@@ -6,5 +6,5 @@ async function fetchProducts() {
   mode: "no-cors",
   })
 
-  return await product.json();
+  return product;
 }
