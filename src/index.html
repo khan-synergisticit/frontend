@@ -26,22 +26,24 @@ src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/jquery.validate.
 src="js/login.js" type="text/javascript"></script>
 <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js" type="text/javascript">
 
-	function initAxios(){
-		axios.get("https://192.168.1.76:8090/")
-		.then((data)=>{
-			console.log("Data: " + JSON.stringify(data))
-		})
-		.catch((error)=>{
-			console.log("Error: " + JSON.stringify(error))
-		})
-	}
+	
 	
 
 	// Example usage:
 		// init();
     $(function(){
       $("#includedContent").load("base.html"); 
+			function initAxios(){
+				axios.get("https://192.168.1.76:8090/")
+				.then((data)=>{
+					console.log("Data: " + JSON.stringify(data))
+				})
+				.catch((error)=>{
+					console.log("Error: " + JSON.stringify(error))
+				})
+			}
 			initAxios();
+
     });
     </script> 
 </head>
