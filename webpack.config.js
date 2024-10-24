@@ -42,6 +42,4 @@ config = {
     plugins: [new HtmlWebpackPlugin({ template: './static/index.html' })] //localhost:9090 - loads this html
 }
 
-module.exports = {
-    config
-}
+export default config
