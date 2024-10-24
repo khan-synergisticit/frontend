@@ -71,8 +71,9 @@ function getCookie(name) {
 function init(){
   const urlParams = new URLSearchParams(window.location.search);
 		const code = urlParams.get('code');
+    console.log('token:', code);
 	if(code != null){
-		console.log('token:', code);
+		
 		localStorage.setItem("access_token", code);
 			fetchUser()
 			.then(res =>{
