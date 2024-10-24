@@ -1,4 +1,4 @@
-import  axios  from '../../node_modules/axios/';
+import  axios  from '../../node_modules/axios/index.js';
 
 const axiosInstance = axios.create({
   baseURL: 'https://192.168.1.76:8090/',
