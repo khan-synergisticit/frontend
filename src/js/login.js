@@ -36,16 +36,12 @@ var loginFunc =()=>{
   form.submit();
 }
 async function fetchUser() {
-  var url = "/api/user/find";
-  const token = localStorage.getItem("access_token");
-  console.log("token: " + token)
+  var url = "http://192.168.1.76:8090/api/user/find";
+  // const token = localStorage.getItem("access_token");
+  // console.log("token: " + token)
   const response = await fetch.get(url, {
 
   credentials: "include",
-  headers: {
-     'Authorization': "Bearer " + token,
-     'Content-Type': 'application/x-www-form-urlencoded'
-  }
   })
     return await response.json();
 }
