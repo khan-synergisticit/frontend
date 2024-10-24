@@ -9,6 +9,8 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename); 
 const paths = __dirname + '/src/';
 
+import {axiosInstance} from './src/js/axios-service.js';
+
 app.use(cookieParser());
 
 app.use(cors());
