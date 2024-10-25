@@ -81,7 +81,7 @@ function init(){
   const urlParams = new URLSearchParams(window.location.search);
 		const code = urlParams.get('code');
     console.log("cookies: " + document.cookie)
-
+    alert(getCookie("access_token"))
 	if(code != null){
 		
 		localStorage.setItem("access_token", code);
