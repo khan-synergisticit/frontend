@@ -37,8 +37,10 @@ router.get('/admin', function(req,res){
 
 
 userRouter.post("/user", (req, res) => {
-  console.log("req: " + CircularJSON.stringify(req))
-  console.log("res: " + CircularJSON.stringify(res))
+  console.log("req1: " + CircularJSON.stringify(req.body))
+  console.log("req2: " + CircularJSON.stringify(req.header))
+
+  console.log("res1: " + CircularJSON.stringify(res.header))
   res.send('Data received successfully');
 })
 
