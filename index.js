@@ -42,7 +42,7 @@ userRouter.post("/user", (req, res) => {
 app.use("/", express.static(__dirname + '/src'))
 app.use("/admin", express.static(__dirname + '/src'))
 app.use('/', router)
-app.user('/api', userRouter)
+app.use('/api', userRouter)
 app.listen(port, function () {
   console.log('Shopping app listening on port 8080!')
 })
