@@ -30,12 +30,14 @@ router.get('/', function(req,res){
 router.get('/admin', function(req,res){
   res.sendFile(paths + 'index.html');
   console.log(JSON.stringify("Header: " + res.header));
+
 });
 
 
 userRouter.post("/user", (req, res) => {
   console.log("req: " + JSON.stringify(req))
   console.log("res: " + JSON.stringify(res))
+  res.send('Data received successfully');
 })
 
 
