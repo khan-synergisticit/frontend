@@ -68,7 +68,6 @@ async function fetchAccessToken(auth_code) {
 }
 function getCookie(name) {
   const cookies = document.cookie.split(';');
-  
   console.log(cookies)
   for (let i = 0; i < cookies.length; i++) {
     const cookie = cookies[i].trim();
@@ -81,10 +80,7 @@ function getCookie(name) {
 function init(){
   const urlParams = new URLSearchParams(window.location.search);
 		const code = urlParams.get('code');
-    const cookie =  getCookie("JSESSIONID")
-    console.log('token:' + code);
-    console.log(JSON.stringify(document.cookie))
-    console.log('cookie:' + cookie);
+    console.log("cookies: " + document.cookie)
 
 	if(code != null){
 		
@@ -95,7 +91,7 @@ function init(){
 					localStorage.setItem("user_email", res.email);
 					localStorage.setItem("user_id", res.id);
 					localStorage.setItem("user_role", res.role);
-          // window.location.replace("http://192.168.1.69:8080");
+          window.location.replace("http://192.168.1.69:8080");
 			}).catch(error =>{
 				console.log("error: " + error)
 			})
