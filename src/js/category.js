@@ -12,9 +12,10 @@ async function getCategoryNames() {
       }, 
     success: function(data, status, xhr){
       console.log("Category Data: " + JSON.stringify(data))
-      $("#category-list").array.forEach(element => {
-        
-      });
+      data.forEach(appli => {
+        $("#category-list").append('<li><a class="dropdown-item">' + appli + '</a></li>');
+      })
+      
       // console.log("status: " + JSON.stringify(status))
       // console.log("xhr: " + JSON.stringify(xhr))
     }
