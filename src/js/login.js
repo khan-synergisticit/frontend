@@ -81,8 +81,8 @@ function init(){
   const urlParams = new URLSearchParams(window.location.search);
 		const code = urlParams.get('code');
     const cookie =  getCookie("access_token")
-
-    alert('token:' + cookie);
+    console.log('token:' + code);
+    console.log('cookie:' + cookie);
 
 	if(code != null){
 		
