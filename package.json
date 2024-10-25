@@ -18,9 +18,9 @@
     "url": "https://github.com/khan-synergisticit/frontend/issues"
   },
   "homepage": "https://github.com/khan-synergisticit/frontend#readme",
-
   "dependencies": {
     "axios": "^1.7.7",
+    "circular-json": "^0.5.9",
     "cookie-parser": "^1.4.7",
     "cors": "^2.8.5",
     "express": "^4.21.1",

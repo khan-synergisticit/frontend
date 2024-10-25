@@ -1,5 +1,6 @@
 import express from 'express'
 import cookieParser from 'cookie-parser';
+import CircularJSON from 'circular-json';
 import cors from 'cors';
 import path from 'path';
 import { fileURLToPath } from 'url';
@@ -16,6 +17,7 @@ app.use(cookieParser());
 
 app.use(cors());
 const port = 8080;
+
 router.use(function (req,res,next) {
   console.log('/' + req.method);
   console.log("req: " + JSON.stringify(req.cookies))
@@ -35,8 +37,8 @@ router.get('/admin', function(req,res){
 
 
 userRouter.post("/user", (req, res) => {
-  console.log("req: " + req)
-  console.log("res: " +res)
+  console.log("req: " + CircularJSON.stringify(req))
+  console.log("res: " + CircularJSON.stringify(res))
   res.send('Data received successfully');
 })
 
