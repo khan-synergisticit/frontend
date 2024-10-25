@@ -9,7 +9,7 @@ $(function(){
     success: function(data, status, xhr){
       console.log("Category Data: " + JSON.stringify(data))
       for( let i = 0; i < data.length; i++){
-        $("#category-list").append('<li><a class="dropdown-item">' + data[i] + '</a></li>');
+        $("#category-list").append("<li>").text(data[i]);
         console.log("data: " + data[i]);
       }
       
