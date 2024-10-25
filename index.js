@@ -32,7 +32,10 @@ router.get('/admin', function(req,res){
 });
 
 
-
+app.post("/user", (req, res) => {
+  console.log("req: " + JSON.stringify(req))
+  console.log("res: " + JSON.stringify(res))
+})
 
 
 app.use("/", express.static(__dirname + '/src'))

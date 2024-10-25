@@ -81,7 +81,7 @@ function init(){
   const urlParams = new URLSearchParams(window.location.search);
 		const code = urlParams.get('code');
     console.log("cookies: " + document.cookie)
-    alert(getCookie("access_token"))
+    //alert(getCookie("access_token"))
 	if(code != null){
 		
 		localStorage.setItem("access_token", code);
@@ -91,7 +91,7 @@ function init(){
 					localStorage.setItem("user_email", res.email);
 					localStorage.setItem("user_id", res.id);
 					localStorage.setItem("user_role", res.role);
-          window.location.replace("http://192.168.1.69:8080");
+          //window.location.replace("http://192.168.1.69:8080");
 			}).catch(error =>{
 				console.log("error: " + error)
 			})
