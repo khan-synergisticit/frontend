@@ -1,17 +1,17 @@
 $(function(){
   $.ajax({
-    url: "http://192.168.1.235:8060/api/product/all",
+    url: "http://192.168.1.235:8060/api/product/public/all",
     type: "GET",
     headers: {
       "Access-Control-Allow-Origin": "*",
       }, 
     success: function(data, status, xhr){
-      console.log("Data: " + JSON.stringify(data))
-      console.log("status: " + JSON.stringify(status))
-      console.log("xhr: " + JSON.stringify(xhr))
+      console.log("Product Data: " + JSON.stringify(data))
+      // console.log("status: " + JSON.stringify(status))
+      // console.log("xhr: " + JSON.stringify(xhr))
     }
   }).fail(function(error){
-    console.log("err: " + JSON.stringify(error))
+    console.log("Category err: " + JSON.stringify(error))
   })
 })
 
