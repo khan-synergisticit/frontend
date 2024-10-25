@@ -5,6 +5,7 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 const app = express();
 const router = express.Router();
+const userRouter = express.Router();
 const __filename = fileURLToPath(import.meta.url); 
 const __dirname = path.dirname(__filename); 
 const paths = __dirname + '/src/';
@@ -32,7 +33,7 @@ router.get('/admin', function(req,res){
 });
 
 
-app.post("/user", (req, res) => {
+userRouter.post("/user", (req, res) => {
   console.log("req: " + JSON.stringify(req))
   console.log("res: " + JSON.stringify(res))
 })
@@ -41,6 +42,7 @@ app.post("/user", (req, res) => {
 app.use("/", express.static(__dirname + '/src'))
 app.use("/admin", express.static(__dirname + '/src'))
 app.use('/', router)
+app.user('/api', userRouter)
 app.listen(port, function () {
   console.log('Shopping app listening on port 8080!')
 })
