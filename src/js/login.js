@@ -35,11 +35,18 @@ async function login() {
 }
 var loginFunc =()=>{
   var oauth2Endpoint = "http://192.168.1.76:8090/login"; // "http://127.0.0.1:8090/login";
-  var form = document.createElement('form');
-  form.setAttribute('method', 'GET'); 
-  form.setAttribute('action', oauth2Endpoint);
-  document.body.appendChild(form);
-  form.submit();
+  // var form = document.createElement('form');
+  // form.setAttribute('method', 'GET'); 
+  // form.setAttribute('action', oauth2Endpoint);
+  // document.body.appendChild(form);
+  // form.submit();
+  $.ajaxForm({
+    url : oauth2Endpoint, // or whatever
+    type: "GET",
+    success : function (response) {
+        alert("The server says: " + response);
+    }
+})
 }
 async function fetchUser() {
   var url = "http://192.168.1.76:8090/api/user/find";
