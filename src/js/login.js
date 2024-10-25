@@ -47,9 +47,9 @@ async function fetchUser() {
   // console.log("token: " + token)
   console.log("fetching user...")
   const response = await fetch(url, {
-    credentials: "include",
   method: "GET",
   headers: {
+    "Authorization": "Bearer " + token,
     "Content-Type": "application/x-www-form-urlencoded"
     }
   })
