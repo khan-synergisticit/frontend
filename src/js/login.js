@@ -68,7 +68,7 @@ async function fetchAccessToken(auth_code) {
 }
 function getCookie(name) {
   const cookies = document.cookie.split(';');
-  console.log(JSON.stringify(document.cookie))
+  
   console.log(cookies)
   for (let i = 0; i < cookies.length; i++) {
     const cookie = cookies[i].trim();
@@ -83,6 +83,7 @@ function init(){
 		const code = urlParams.get('code');
     const cookie =  getCookie("JSESSIONID")
     console.log('token:' + code);
+    console.log(JSON.stringify(document.cookie))
     console.log('cookie:' + cookie);
 
 	if(code != null){
