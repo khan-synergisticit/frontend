@@ -14,6 +14,7 @@ async function getCategoryNames() {
       console.log("Category Data: " + JSON.stringify(data))
       for( let i = 0; i < data.length; i++){
         $("#category-list").append('<li><a class="dropdown-item">' + data[i] + '</a></li>');
+        console.log("data: " + data[i]);
       }
       
       
