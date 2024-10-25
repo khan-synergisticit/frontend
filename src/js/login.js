@@ -80,7 +80,10 @@ function getCookie(name) {
 function init(){
   const urlParams = new URLSearchParams(window.location.search);
 		const code = urlParams.get('code');
-    console.log('token:', code);
+    const cookie =  getCookie("access_token")
+
+    alert('token:' + cookie);
+
 	if(code != null){
 		
 		localStorage.setItem("access_token", code);

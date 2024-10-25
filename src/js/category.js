@@ -10,7 +10,6 @@ $(function(){
       console.log("Category Data: " + JSON.stringify(data))
       for( let i = 0; i < data.length; i++){
         $("#category-list").append("<li>").text(data[i]);
-        console.log("data: " + data[i]);
       }
       
       
