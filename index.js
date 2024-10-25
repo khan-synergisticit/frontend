@@ -33,8 +33,8 @@ router.get('/admin', function(req,res){
 
 
 app.post("/user", (req, res) => {
-  console.log("req: " + JSON.stringify(req))
-  console.log("res: " + JSON.stringify(res))
+  console.log("req: " + JSON.stringify(req.header))
+  console.log("res: " + JSON.stringify(res.getHeader))
 })
 
 
