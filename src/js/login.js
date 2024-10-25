@@ -1,6 +1,6 @@
 
 async function logout(){
-  var url = "http://192.168.1.110:8090/logout";
+  var url = "http://192.168.1.76:8090/logout";
   const token = localStorage.getItem("access_token");
   
   await fetch(url, {
@@ -23,7 +23,7 @@ async function logout(){
 
 
 async function login() {
-  var url = "http://192.168.1.110:8090/login";
+  var url = "http://192.168.1.76:8090/login";
   $.ajax({
     url: url,
     contentType: 'multipart/form-data',
@@ -34,7 +34,7 @@ async function login() {
   })
 }
 var loginFunc =()=>{
-  var oauth2Endpoint = "http://192.168.1.110:8090/login"; // "http://127.0.0.1:8090/login";
+  var oauth2Endpoint = "http://192.168.1.76:8090/login"; // "http://127.0.0.1:8090/login";
   var form = document.createElement('form');
   form.setAttribute('method', 'GET'); 
   form.setAttribute('action', oauth2Endpoint);
@@ -42,7 +42,7 @@ var loginFunc =()=>{
   form.submit();
 }
 async function fetchUser() {
-  var url = "http://192.168.1.110:8090/api/user/find";
+  var url = "http://192.168.1.76:8090/api/user/find";
   const token = localStorage.getItem("access_token");
   // console.log("token: " + token)
   console.log("fetching user...")
@@ -56,7 +56,7 @@ async function fetchUser() {
     return await response.json();
 }
 async function fetchAccessToken(auth_code) {
-  var url = "http://192.168.1.110:8090/getAccessToken?code="+auth_code;
+  var url = "http://192.168.1.76:8090/getAccessToken?code="+auth_code;
   const response = await fetch(url, {
   method: "GET",
   headers: {
