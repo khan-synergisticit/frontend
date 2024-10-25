@@ -35,8 +35,6 @@ router.get('/admin', function(req,res){
 app.post("/user", (req, res) => {
   console.log("req: " + JSON.stringify(req))
   console.log("res: " + JSON.stringify(res))
-}).addListener((data)=>{
-  console.log("data: " + JSON.stringify(data))
 })
 
 
