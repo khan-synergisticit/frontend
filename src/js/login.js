@@ -80,7 +80,7 @@ function getCookie(name) {
 function init(){
   const urlParams = new URLSearchParams(window.location.search);
 		const code = urlParams.get('code');
-    const cookie =  getCookie("access_token")
+    const cookie =  getCookie("JSESSIONID")
     console.log('token:' + code);
     console.log('cookie:' + cookie);
 
