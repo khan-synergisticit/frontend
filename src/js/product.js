@@ -1,6 +1,6 @@
 $(function(){
   $.ajax({
-    url: "http://192.168.1.235:8060/api/product/all",
+    url: "http://192.168.1.103:8060/api/product/all",
     type: "GET",
     headers: {
       "Access-Control-Allow-Origin": "*",
