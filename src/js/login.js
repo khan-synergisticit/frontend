@@ -87,6 +87,7 @@ function init(){
   fetch('/data')
   .then(response => response.json())
   .then(data => {
+    console.log("Data1: " + JSON.stringify(data))
     localStorage.setItem("user_email", data.email);
             localStorage.setItem("user_id", data.id);
             localStorage.setItem("user_role", data.role);
