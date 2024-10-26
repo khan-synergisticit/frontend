@@ -51,10 +51,9 @@ userRouter.post("/user", (req, res) => {
     url: '/api/user/find',
     header: {
       "Authorization": "Bearer " + code,
-      "Content-Type": "application/x-www-form-urlencoded"
       }
   }).then(data=>{
-    console.log("Data: " + CircularJSON.stringify(data))
+    console.log("Data: " + CircularJSON.stringify(data.data))
   })
   res.send('Data received successfully');
 })
