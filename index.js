@@ -39,7 +39,8 @@ router.get('/admin', function(req,res){
 
 
 userRouter.post("/user", (req, res) => {
-  let code = req.rawHeaders[5]
+  let code = JSON.parse(req.rawHeaders[5])
+  
   console.log(code)
   const key = randomUUID();
   let success = userCache.set(key, code);
