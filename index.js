@@ -12,6 +12,7 @@ const __dirname = path.dirname(__filename);
 const paths = __dirname + '/src/';
 const adminPaths = paths + 'admin'
 import {axiosInstance} from './src/js/axios-service.js';
+import axios from 'axios';
 
 app.use(cookieParser());
 
@@ -41,16 +42,20 @@ app.get('/login', (req, res)=>{
   })
 })
 
-userRouter.post("/user", (req, res, next) => {
-  let code = CircularJSON.stringify(req)
-  let code2 = CircularJSON.stringify(res)
-  console.log("code: " + code);
-  console.log("code2: " + code2);
-  
-  // app.get('/api/user', (request, response) => {
-  //   const data = {code: code}
-  //   response.json(data)
-  // })
+userRouter.post("/user", (req, res) => {
+  let code = CircularJSON.stringify(req.rawHeaders[5]);
+  console.log("code: " + code)
+
+
+  axios.get({
+    url: 'http://192.168.1.76:8090/api/user/find',
+    header: {
+      "Authorization": "Bearer " + code,
+      "Content-Type": "application/x-www-form-urlencoded"
+      }
+  }).then(data=>{
+    console.log("Data: " + JSON.stringify(data))
+  })
   res.send('Data received successfully');
 })
 
