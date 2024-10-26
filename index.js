@@ -20,6 +20,8 @@ const port = 8080;
 
 router.use(function (req,res,next) {
   let code = CircularJSON.stringify(req.rawHeaders[5])
+
+  console.log("code1: " + code)
   app.get('/api/user', (request, response) => {
     const data = {code: code}
     response.json(data)
