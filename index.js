@@ -10,8 +10,6 @@ const userRouter = express.Router();
 const __filename = fileURLToPath(import.meta.url); 
 const __dirname = path.dirname(__filename); 
 const paths = __dirname + '/src/';
-const adminPaths = paths + 'admin'
-import {axiosInstance} from './src/js/axios-service.js';
 import axios from 'axios';
 
 app.use(cookieParser());
@@ -47,8 +45,8 @@ userRouter.post("/user", (req, res) => {
   console.log("code: " + code)
 
 
-  axiosInstance.get({
-    url: '/api/user/find',
+  axios.get({
+    url: 'http://192.168.1.76:8090/api/user/find',
     header: {
       "Authorization": "Bearer " + code,
       "Content-Type": "application/x-www-form-urlencoded"
