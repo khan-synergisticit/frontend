@@ -44,16 +44,18 @@ var loginFunc =()=>{
 async function fetchUser() {
   var url = "http://192.168.1.76:8090/api/user/find";
   const token = localStorage.getItem("access_token");
-  // console.log("token: " + token)
+  console.log("token: " + token)
   console.log("fetching user...")
-  const response = await fetch(url, {
-  method: "GET",
-  headers: {
-    "Authorization": "Bearer " + token,
-    "Content-Type": "application/x-www-form-urlencoded"
-    }
-  })
-    return await response.json();
+  if(token !== null){
+    const response = await fetch(url, {
+      method: "GET",
+      headers: {
+        "Authorization": "Bearer " + token,
+        "Content-Type": "application/x-www-form-urlencoded"
+        }
+      })
+        return await response.json();
+  }
 }
 async function fetchAccessToken(auth_code) {
   var url = "http://192.168.1.76:8090/getAccessToken?code="+auth_code;
