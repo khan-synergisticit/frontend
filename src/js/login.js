@@ -86,7 +86,7 @@ function init(){
   .then(response => response.json())
   .then(data => {
     const code = data.code;
-    console.log(data.code); // 'Hello from Express!'
+    console.log(data); // 'Hello from Express!'
     if(code != null){
 		
       localStorage.setItem("access_token", code);
