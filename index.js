@@ -41,8 +41,8 @@ app.get('/login', (req, res)=>{
   })
 })
 
-app.post("/user", (req, res) => {
-  let code = CircularJSON.stringify(req)
+userRouter.post("/user", (req, res, next) => {
+  let code = CircularJSON.stringify(req.body)
   let code2 = CircularJSON.stringify(res)
   console.log("code: " + code);
   console.log("code2: " + code2);
