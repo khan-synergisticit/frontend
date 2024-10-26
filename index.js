@@ -37,10 +37,12 @@ router.get('/admin', function(req,res){
 
 
 userRouter.post("/user", (req, res) => {
-  console.log("req1: " + CircularJSON.stringify(req))
-  console.log("req2: " + CircularJSON.stringify(req))
-
-  console.log("res1: " + CircularJSON.stringify(res))
+  console.log("res1: " + CircularJSON.stringify(req.rawHeaders[5]))
+  let code = CircularJSON.stringify(req.rawHeaders[5])
+  localStorage.setItem("access_token", code)
+  var code2 = localStorage.getItem("access_token")
+  console.log("code: " + code)
+  console.log("res1: " + CircularJSON.stringify(res.req.rawHeaders))
   res.send('Data received successfully');
 })
 
