@@ -50,7 +50,11 @@ userRouter.post("/user", (req, res) => {
     console.log("code.tokenValue: " + code.tokenValue + ", key: " + key);
     fetchUser(code.tokenValue)
     .then((data) => {
-      console.log("Data: " +  JSON.stringify(data));
+      data.sessionId = key;
+      app.get('/api/user', (request, response) =>{
+        response.json(data)
+      })
+      
     })
   }
   res.send('Data received successfully');

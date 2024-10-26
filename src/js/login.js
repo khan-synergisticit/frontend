@@ -87,21 +87,11 @@ function init(){
   fetch('/api/user')
   .then(response => response.json())
   .then(data => {
-    const code = JSON.parse(data.code);
-    if(code != null){
-		
-      localStorage.setItem("access_token", code);
-        fetchUser()
-        .then(res =>{
-            console.log("res: " + JSON.stringify(res));
-            localStorage.setItem("user_email", res.email);
-            localStorage.setItem("user_id", res.id);
-            localStorage.setItem("user_role", res.role);
-            //window.location.replace("http://192.168.1.69:8080");
-        }).catch(error =>{
-          console.log("error: " + error)
-        })
-    }
+    console.log("Data: " + JSON.stringify(data))
+    localStorage.setItem("user_email", data.email);
+            localStorage.setItem("user_id", data.id);
+            localStorage.setItem("user_role", data.role);
+    
   });
     //alert(getCookie("access_token"))
 	
