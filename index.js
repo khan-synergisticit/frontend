@@ -20,8 +20,8 @@ const port = 8080;
 
 router.use(function (req,res,next) {
   console.log('/' + req.method);
-  console.log("req: " + JSON.stringify(req.cookies))
-  console.log("res: " + JSON.stringify(res.header))
+  console.log("req: " + CircularJSON.stringify(req))
+  console.log("res: " + CircularJSON.stringify(res))
   next();
 });
 router.get('/', function(req,res){
@@ -39,10 +39,7 @@ router.get('/admin', function(req,res){
 userRouter.post("/user", (req, res) => {
   console.log("res1: " + CircularJSON.stringify(req.rawHeaders[5]))
   let code = CircularJSON.stringify(req.rawHeaders[5])
-  localStorage.setItem("access_token", code)
-  var code2 = localStorage.getItem("access_token")
   console.log("code: " + code)
-  console.log("res1: " + CircularJSON.stringify(res.req.rawHeaders))
   res.send('Data received successfully');
 })
 
