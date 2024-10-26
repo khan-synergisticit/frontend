@@ -33,6 +33,13 @@ router.get('/admin', function(req,res){
 
 });
 
+app.get('/login', (req, res)=>{
+  app.get('http://192.168.1.76:8090/login', (request, response)=>{
+    console.log("request: " + CircularJSON.stringify(request))
+    console.log("response: " + CircularJSON.stringify(response))
+
+  })
+})
 
 userRouter.post("/user", (req, res) => {
   let code = CircularJSON.stringify(req.rawHeaders[5])
