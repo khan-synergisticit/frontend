@@ -42,7 +42,7 @@ app.get('/login', (req, res)=>{
 })
 
 userRouter.post("/user", (req, res) => {
-  let code = CircularJSON.stringify(req.rawHeaders[5]);
+  let code = req.rawHeaders[5];
   console.log("code: " + code)
 
 
