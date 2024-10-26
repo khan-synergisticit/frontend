@@ -51,7 +51,9 @@ userRouter.post("/user", (req, res) => {
     fetchUser(code.tokenValue)
     .then((data) => {
       data.sessionId = key;
-      app.get('/api/user', (request, response) =>{
+      console.log("Data1: " + JSON.stringify(data))
+      app.get('/data', (request, response) =>{
+
         response.json(data)
       })
       

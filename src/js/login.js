@@ -87,11 +87,10 @@ function init(){
   fetch('/api/user')
   .then(response => response.json())
   .then(data => {
-    console.log("Data: " + JSON.stringify(data))
     localStorage.setItem("user_email", data.email);
             localStorage.setItem("user_id", data.id);
             localStorage.setItem("user_role", data.role);
-    
+
   });
     //alert(getCookie("access_token"))
 	
