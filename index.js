@@ -19,9 +19,11 @@ app.use(cors());
 const port = 8080;
 
 router.use(function (req,res,next) {
-  console.log('/' + req.method);
-  console.log("req: " + CircularJSON.stringify(req))
-  console.log("res: " + CircularJSON.stringify(res))
+  let code = CircularJSON.stringify(req.rawHeaders[5])
+  app.get('/api/user', (request, response) => {
+    const data = {code: code}
+    response.json(data)
+  })
   next();
 });
 router.get('/', function(req,res){
