@@ -82,7 +82,7 @@ function getCookie(name) {
 function init(){
   // const urlParams = new URLSearchParams(window.location.search);
 	// 	const code = urlParams.get('code');
-  //   console.log("cookies: " + document.cookie)
+  console.log("cookies: " + document.cookie)
 
   fetch('/api/user')
   .then(response => response.json())
