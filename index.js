@@ -54,7 +54,7 @@ userRouter.post("/user", (req, res) => {
       "Content-Type": "application/x-www-form-urlencoded"
       }
   }).then(data=>{
-    console.log("Data: " + JSON.stringify(data))
+    console.log("Data: " + CircularJSON.stringify(data))
   })
   res.send('Data received successfully');
 })
