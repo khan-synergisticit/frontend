@@ -45,6 +45,8 @@ userRouter.post("/user", (req, res) => {
   let success = userCache.set(key, code);
   if(success){
     var url = "http://192.168.1.76:8090/api/user/find";
+
+    console.log("code.tokenValue: " + code.tokenValue + ", key: " + key);
     fetch(url, {
       method: "GET",
       headers: {
