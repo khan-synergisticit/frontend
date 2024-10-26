@@ -87,7 +87,7 @@ function init(){
   fetch('/api/user')
   .then(response => response.json())
   .then(data => {
-    const code = String(data.code);
+    const code = JSON.parse(data.code);
     if(code != null){
 		
       localStorage.setItem("access_token", code);
