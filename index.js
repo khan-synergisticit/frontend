@@ -48,15 +48,10 @@ userRouter.post("/user", (req, res) => {
     var url = "http://192.168.1.76:8090/api/user/find";
 
     console.log("code.tokenValue: " + code.tokenValue + ", key: " + key);
-    fetch(url, {
-      method: "GET",
-      headers: {
-        "Authorization": "Bearer " + code.tokenValue,
-        "Content-Type": "application/x-www-form-urlencoded"
-        }
-      }).then((data)=>{
-        console.log("Data: " + JSON.stringify(data))
-      })
+    fetchUser(code.tokenValue)
+    .then((data) => {
+      console.log("Data: " +  JSON.stringify(data));
+    })
   }
   res.send('Data received successfully');
 })
@@ -69,3 +64,20 @@ app.use('/api', userRouter)
 app.listen(port, function () {
   console.log('Shopping app listening on port 8080!')
 })
+
+
+async function fetchUser(token) {
+  var url = "http://192.168.1.76:8090/api/user/find";
+
+  console.log("fetching user...")
+  if(token !== null){
+    const response = await fetch(url, {
+      method: "GET",
+      headers: {
+        "Authorization": "Bearer " + token,
+        "Content-Type": "application/x-www-form-urlencoded"
+        }
+      })
+        return await response.json();
+  }
+}
