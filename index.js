@@ -1,9 +1,12 @@
-import express from 'express'
+import express from 'express';
 import cookieParser from 'cookie-parser';
-import CircularJSON from 'circular-json';
 import cors from 'cors';
 import path from 'path';
 import { fileURLToPath } from 'url';
+import NodeCache from 'node-cache';
+
+
+const userCache = new NodeCache();
 const app = express();
 const router = express.Router();
 const userRouter = express.Router();
@@ -12,6 +15,7 @@ const __dirname = path.dirname(__filename);
 const paths = __dirname + '/src/';
 const adminPaths = paths + 'admin'
 import {axiosInstance} from './src/js/axios-service.js';
+import { randomUUID } from 'crypto';
 
 app.use(cookieParser());
 
@@ -37,10 +41,20 @@ router.get('/admin', function(req,res){
 userRouter.post("/user", (req, res) => {
   let code = req.rawHeaders[5]
   console.log(code)
-  // app.get('/api/user', (request, response) => {
-  //   const data = {code: code}
-  //   response.json(data)
-  // })
+  const key = randomUUID();
+  let success = userCache.set(key, code);
+  if(success){
+    var url = "http://192.168.1.76:8090/api/user/find";
+    fetch(url, {
+      method: "GET",
+      headers: {
+        "Authorization": "Bearer " + code.tokenValue,
+        "Content-Type": "application/x-www-form-urlencoded"
+        }
+      }).then((data)=>{
+        console.log("Data: " + JSON.stringify(data))
+      })
+  }
   res.send('Data received successfully');
 })
 
