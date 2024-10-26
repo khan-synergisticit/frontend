@@ -84,7 +84,7 @@ function init(){
 	// const code = urlParams.get('code');
 
 
-  fetch('/api/user')
+  fetch('/api/user/data')
   .then(response => response.json())
   .then(data => {
     localStorage.setItem("user_email", data.email);
