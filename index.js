@@ -35,12 +35,12 @@ router.get('/admin', function(req,res){
 
 
 userRouter.post("/user", (req, res) => {
-  let code = CircularJSON.stringify(req.rawHeaders[5])
-
-  app.get('/api/user', (request, response) => {
-    const data = {code: code}
-    response.json(data)
-  })
+  let code = CircularJSON.stringify(req)
+  console.log(code)
+  // app.get('/api/user', (request, response) => {
+  //   const data = {code: code}
+  //   response.json(data)
+  // })
   res.send('Data received successfully');
 })
 
