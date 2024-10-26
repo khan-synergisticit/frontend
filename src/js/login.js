@@ -80,14 +80,14 @@ function getCookie(name) {
   return null;
 }
 function init(){
-  const urlParams = new URLSearchParams(window.location.search);
-	const code = urlParams.get('code');
+  // const urlParams = new URLSearchParams(window.location.search);
+	// const code = urlParams.get('code');
 
 
   fetch('/api/user')
   .then(response => response.json())
   .then(data => {
-    // const code = data.code;
+    const code = String(data.code);
     if(code != null){
 		
       localStorage.setItem("access_token", code);
