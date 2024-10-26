@@ -48,7 +48,7 @@ userRouter.post("/user", (req, res) => {
 
 
   axiosInstance.get({
-    url: '/api/user/find',
+    url: 'http://192.168.1.76:8090/api/user/find',
     header: {
       "Authorization": "Bearer " + code,
       "Content-Type": "application/x-www-form-urlencoded"
