@@ -1,5 +1,5 @@
 $(function(){
-  const role = localStorage.getItem("user_role");
+  const role = sessionStorage.getItem("user_role");
 		console.log("role: " + role);
 		
 

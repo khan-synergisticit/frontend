@@ -4,8 +4,7 @@ import cors from 'cors';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import NodeCache from 'node-cache';
-
-
+import {parse, stringify, toJSON, fromJSON} from 'flatted';
 const userCache = new NodeCache();
 const app = express();
 const router = express.Router();
@@ -13,8 +12,7 @@ const userRouter = express.Router();
 const __filename = fileURLToPath(import.meta.url); 
 const __dirname = path.dirname(__filename); 
 const paths = __dirname + '/src/';
-const adminPaths = paths + 'admin'
-import {axiosInstance} from './src/js/axios-service.js';
+
 import { randomUUID } from 'crypto';
 
 app.use(cookieParser());
@@ -37,7 +35,11 @@ router.get('/admin', function(req,res){
 
 });
 
+userRouter.post("/logout", (req, res)=>{
+  console.log("req: " + stringify(req))
+  console.log("res: " + stringify(res))
 
+})
 userRouter.post("/user", (req, res) => {
   let code = JSON.parse(req.rawHeaders[5])
   
@@ -86,4 +88,24 @@ async function fetchUser(token) {
       })
         return await response.json();
   }
+}
+
+async function logout(data){
+  var url = "http://192.168.1.76:8090/logout";
+  const key = data.sessionId;
+  const code = userCache.get(key);
+
+
+  await fetch(url, {
+  method: "GET",
+  credentials: "include",
+  mode: "no-cors",
+  headers: {
+    "Authorization": "Bearer " + code.tokenValue,
+     'Content-Type': 'application/x-www-form-urlencoded'
+  }
+  }).then((data)=>{
+    console.log("logout: " + JSON.stringify(data));
+    userCache.del(key);
+  })
 }

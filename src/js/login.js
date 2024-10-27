@@ -1,22 +1,16 @@
 
 async function logout(){
-  var url = "http://192.168.1.76:8090/logout";
-  const token = localStorage.getItem("access_token");
-  
+  var url = "/api/logout";
+  const sessionId =     sessionStorage.getItem("sessionId")
+
   await fetch(url, {
-  method: "GET",
-  credentials: "include",
-  mode: "no-cors",
-  headers: {
-    "Authorization": "Bearer " + token,
-     'Content-Type': 'application/x-www-form-urlencoded'
-  }
+  method: "POST",
+  body: {sessionId}
   }).then((data)=>{
     console.log("logout: " + JSON.stringify(data));
-    localStorage.removeItem("access_token");
-    localStorage.removeItem("user_email");
-    localStorage.removeItem("user_id");
-    localStorage.removeItem("user_role");
+    sessionStorage.removeItem("user_email");
+    sessionStorage.removeItem("user_id");
+    sessionStorage.removeItem("user_role");
     window.location.replace("http://192.168.1.69:8080");
   })
 }
@@ -40,34 +34,9 @@ var loginFunc =()=>{
   form.setAttribute('action', oauth2Endpoint);
   document.body.appendChild(form);
   form.submit();
+  init();
 }
-async function fetchUser() {
-  var url = "http://192.168.1.76:8090/api/user/find";
-  const token = localStorage.getItem("access_token");
-  console.log("token: " + token)
-  console.log("fetching user...")
-  if(token !== null){
-    const response = await fetch(url, {
-      method: "GET",
-      headers: {
-        "Authorization": "Bearer " + token,
-        "Content-Type": "application/x-www-form-urlencoded"
-        }
-      })
-        return await response.json();
-  }
-}
-async function fetchAccessToken(auth_code) {
-  var url = "http://192.168.1.76:8090/getAccessToken?code="+auth_code;
-  const response = await fetch(url, {
-  method: "GET",
-  headers: {
-    "Access-Control-Allow-Origin": "*",
-    "Content-Type": "application/x-www-form-urlencoded"
-    },    
-    })
-    return await response.json();    
-}
+
 function getCookie(name) {
   const cookies = document.cookie.split(';');
   console.log(cookies)
@@ -80,20 +49,28 @@ function getCookie(name) {
   return null;
 }
 function init(){
-  // const urlParams = new URLSearchParams(window.location.search);
-	// const code = urlParams.get('code');
-
-
-  fetch('/data')
-  .then(response => response.json())
-  .then(data => {
-    console.log("Data1: " + JSON.stringify(data))
-    localStorage.setItem("user_email", data.email);
-            localStorage.setItem("user_id", data.id);
-            localStorage.setItem("user_role", data.role);
-
-  });
-    //alert(getCookie("access_token"))
+  try{
+    
+    fetch('/data')
+    .then(response => response.json())
+    .catch(error => {
+      console.log("init error1: " + error)
+    })
+    .then(data => {
+      console.log("Data1: " + JSON.stringify(data))
+      console.log("data.role: " + data.role)
+      sessionStorage.setItem("user_email", data.email);
+      sessionStorage.setItem("user_id", data.id);
+      sessionStorage.setItem("user_role", data.role);
+      sessionStorage.setItem("sessionId", data.sessionId)
+      window.location.replace("http://192.168.1.69:8080")
+    }).catch(error => {
+      console.log("init error2: " + error)
+    });
+  
+  } catch (error) {
+    console.log("init error3: " + error);
+  }
 	
 }
 
