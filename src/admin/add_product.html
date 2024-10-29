@@ -3,6 +3,8 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
+<script
+src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js" type="text/javascript"></script>
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
 	rel="stylesheet"
@@ -15,62 +17,15 @@
 	crossorigin="anonymous" referrerpolicy="no-referrer" />
 
 <link rel="stylesheet" href="../css/style.css">
+<script src="../js/product.js" type="text/javascript"></script>
+<script type="text/javascript">
+	$(function(){
+      $("#includedContent").load("../base.html"); 
+    });
+</script>
 </head>
 <body>
-	<!-- Start Navbar  -->
-	<nav class="navbar navbar-expand-lg  bg-primary fixed-top navbar-dark">
-		<div class="container-fluid">
-			<a class="navbar-brand" href="#"><i
-				class="fa-solid fa-cart-shopping"></i> Ecom Store</a>
-			<button class="navbar-toggler" type="button"
-				data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-				aria-controls="navbarSupportedContent" aria-expanded="false"
-				aria-label="Toggle navigation">
-				<span class="navbar-toggler-icon"></span>
-			</button>
-			<div class="collapse navbar-collapse" id="navbarSupportedContent">
-				<ul class="navbar-nav me-auto mb-2 mb-lg-0">
-					
-						<li class="nav-item"><a class="nav-link active"
-							aria-current="page" href="/"><i class="fa-solid fa-house"></i>
-								Home</a></li>
-					
-
-					
-
-
-
-					<li class="nav-item"><a class="nav-link active"
-						aria-current="page" href="/products">Product</a></li>
-
-					<li class="nav-item dropdown"><a
-						class="nav-link dropdown-toggle" href="#" role="button"
-						data-bs-toggle="dropdown" aria-expanded="false"> Category </a>
-						<ul class="dropdown-menu">
-							
-
-						</ul></li>
-
-				</ul>
-
-				<ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-					
-						<li class="nav-item"><a class="nav-link active"
-							aria-current="page" href="/signin"><i
-								class="fa-solid fa-right-to-bracket"></i> LOGIN</a></li>
-						<li class="nav-item"><a class="nav-link active"
-							aria-current="page" href="/register">REGISTER</a></li>
-
-
-					
-
-					
-
-				</ul>
-
-			</div>
-		</div>
-	</nav>
+	<div id="includedContent"></div>
 	<!-- End Navbar -->
 
 	<section>
@@ -87,21 +42,20 @@
 
 						</div>
 						<div class="card-body">
-							<form action="/admin/saveProduct" method="post"
-								enctype="multipart/form-data">
+							
 								<div class="mb-3">
-									<label>Enter Title</label> <input type="text" name="title"
+									<label>Enter Title</label> <input type="text" name="title" id="productTitle"
 										class="form-control">
 								</div>
 
 								<div class="mb-3">
 									<label>Enter Description</label>
-									<textarea rows="3" cols="" class="form-control"
+									<textarea rows="3" cols="" class="form-control" id="productDescription"
 										name="description"></textarea>
 								</div>
 
 								<div class="mb-3">
-									<label>Category</label> <select class="form-control"
+									<label>Category</label> <select class="form-control" id="productCategory"
 										name="category">
 										<option>--select--</option>
 										
@@ -109,7 +63,7 @@
 								</div>
 
 								<div class="mb-3">
-									<label>Enter Price</label> <input type="number" name="price"
+									<label>Enter Price</label> <input type="number" name="price" id="productPrice"
 										class="form-control">
 								</div>
 								<div class="mb-3">
@@ -132,17 +86,17 @@
 								<div class="row">
 
 									<div class="mb-3 col">
-										<label>Enter Stock</label> <input type="text" name="stock"
+										<label>Enter Stock</label> <input type="text" name="stock" id="productStock"
 											class="form-control">
 									</div>
 
 									<div class="mb-3 col">
-										<label>Upload Image</label> <input type="file" name="file"
+										<label>Upload Image</label> <input type="file" name="file" id="productImage"
 											class="form-control">
 									</div>
 								</div>
-								<button class="btn btn-primary col-md-12">Submit</button>
-							</form>
+								<button type="button" class="btn btn-primary col-md-12" id="addProductBtn">Submit</button>
+							
 						</div>
 					</div>
 				</div>

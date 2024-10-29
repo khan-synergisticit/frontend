@@ -28,25 +28,21 @@ src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/jquery.validate.
 src="js/login.js" type="text/javascript">
 
 </script>
-<script 
-src="js/base.js" type="text/javascript">
-const urlParams = new URLSearchParams(window.location.search);
-const param = urlParams.get('redirect');
-if(param.length > 0){
-	init()
-}
-</script>
+<script src="js/base.js" type="text/javascript"></script>
+<script src="js/category.js" type="text/javascript"></script>
 <script type="text/javascript">
-
-
-</script>
+	const urlParams = new URLSearchParams(window.location.search);
+	const param = urlParams.get('redirect');
+	if(param != null){
+		if(param.length > 0){
+		init()
+	}	
+	}
+	</script>
 </head>
 <body>
-	<script 
-src="js/category.js" type="text/javascript">
-
-</script>
 	
+
 	<nav class="navbar navbar-expand-lg  bg-primary fixed-top navbar-dark">
 		<div class="container-fluid">
 			<a class="navbar-brand" href="#"><i
@@ -62,10 +58,10 @@ src="js/category.js" type="text/javascript">
 						<li class="nav-item" id="role-link"></li>
 					<li class="nav-item"><a class="nav-link active"
 						aria-current="page" href="/product.html">Product</a></li>
-					<li class="nav-item dropdown"><a
-						class="nav-link dropdown-toggle" href="#" role="button"
-						data-bs-toggle="dropdown" aria-expanded="false"> Category </a>
-						<ul class="dropdown-menu" id="category-list">					
+					<li class="nav-item dropdown"><button type="button" aria-expanded="false" 
+						class="nav-link " 
+						data-bs-toggle="collapse" aria-controls="categoryList" id="categoryBtn"> Category </button>
+						<ul class="collapse" id="categoryList">					
 
 						</ul></li>
 				</ul>
