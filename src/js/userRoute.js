@@ -2,6 +2,7 @@ import express from 'express';
 import {parse, stringify, toJSON, fromJSON} from 'flatted';
 import NodeCache from 'node-cache';
 import {randomUUID } from 'crypto'
+import { AUTH_CLIENT_URL } from './constants.js';
 
 
 const userCache = new NodeCache();
@@ -13,20 +14,24 @@ userRouter.use(express.json());
 
 
 userRouter.post("", (req, res) => {
+  let header = req.rawHeaders;
   let code = JSON.parse(req.rawHeaders[5])
+  for(let i = 0; i < header.length; i++){
+    console.log("user: " + header[i])
+  }
   
   console.log(code)
-  const key = randomUUID();
+  const key = code.sessionId;
   let success = userCache.set(key, JSON.stringify(code));
   if(success){
     console.log("code.tokenValue: " + code.tokenValue + ", key: " + key);
     fetchUser(code.tokenValue)
     .then((data) => {
       data.sessionId = key;
-      console.log("Data1: " + JSON.stringify(data))
+      
       userRouter.get('/data', (request, response) =>{
-
-        response.json(data)
+        console.log("Data1: " + JSON.stringify(data))
+        response.status(200).json(data)
       })
       
     })
@@ -50,23 +55,27 @@ userRouter.get("/logout", function (req, res){
 })
 
 async function fetchUser(token) {
-  var url = "http://192.168.1.76:8090/api/user/find";
+  var url = AUTH_CLIENT_URL + "/api/user/find";
 
   console.log("fetching user...")
   if(token !== null){
-    const response = await fetch(url, {
+    return await fetch(url, {
       method: "GET",
       headers: {
         "Authorization": "Bearer " + token,
         "Content-Type": "application/x-www-form-urlencoded"
         }
       })
-        return await response.json();
+      .then(response => response.json())
+      .catch(error => console.log("fetch user error: " + error))
+      .then(data => {
+        return data;
+      })
   }
 }
 
 async function logout(key){
-  var url = "http://192.168.1.76:8090/logout";
+  var url = AUTH_CLIENT_URL + "/logout";
 
   const code = userCache.get(key);
  console.log("code: " + code)

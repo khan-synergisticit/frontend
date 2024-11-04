@@ -31,7 +31,7 @@ async function logout(){
 }
 
 var loginFunc =()=>{
-  var oauth2Endpoint = "http://192.168.1.76:8090/login"; 
+  var oauth2Endpoint = "/login"; 
   var form = document.createElement('form');
   form.setAttribute('method', 'GET'); 
   form.setAttribute('action', oauth2Endpoint);
@@ -51,29 +51,47 @@ function getCookie(name) {
   return null;
 }
 function init(){
-  try{
-    
-    fetch('/api/user/data')
-    .then(response => response.json())
-    .catch(error => {
-      console.log("init error1: " + error)
-    })
-    .then(data => {
-      console.log("Data1: " + JSON.stringify(data))
-      console.log("data.role: " + data.role)
-      sessionStorage.setItem("user_email", data.email);
+  $(function(){
+    $.ajax({
+      url: "api/user/data",
+      method: "GET",
+      success: function(data, status, xht){
+        console.log("data:  " + JSON.stringify(data))
+        sessionStorage.setItem("user_email", data.email);
       sessionStorage.setItem("user_id", data.id);
       sessionStorage.setItem("user_role", data.role);
       sessionStorage.setItem("sessionId", data.sessionId)
       sessionStorage.setItem("user_data", JSON.stringify(data))
-      window.location.replace("http://192.168.1.69:8080")
-    }).catch(error => {
-      console.log("init error2: " + error)
-    });
-  
-  } catch (error) {
-    console.log("init error3: " + error);
-  }
+      }
+    })
+  })
+  // fetch("api/user/data",
+
+  //   {
+  //     method: "GET",
+
+  //   }
+  // )
+  //   .then(response => 
+  //   {
+  //     console.log("response: " + JSON.stringify(response))
+  //   }
+  //   )
+  //   .catch(error => {
+  //     console.log("init error1: " + error)
+  //   })
+  //   .then(data => {
+  //     console.log("Data1: " + JSON.stringify(data))
+  //     console.log("data.role: " + data.role)
+  //     sessionStorage.setItem("user_email", data.email);
+  //     sessionStorage.setItem("user_id", data.id);
+  //     sessionStorage.setItem("user_role", data.role);
+  //     sessionStorage.setItem("sessionId", data.sessionId)
+  //     sessionStorage.setItem("user_data", JSON.stringify(data))
+  //    // window.location.replace("http://192.168.1.69:8080")
+  //   }).catch(error => {
+  //     console.log("init error2: " + error)
+  //   });
 	
 }
 

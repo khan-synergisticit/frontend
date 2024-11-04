@@ -4,6 +4,7 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 import {userRouter} from './src/js/userRoute.js';
 import productRouter from './src/js/productRoute.js';
+import { AUTH_CLIENT_URL, FRONTEND_URL } from './src/js/constants.js';
 
 const app = express();
 const router = express.Router();
@@ -24,10 +25,6 @@ app.use(cors());
 
 const port = 8080;
 
-router.use(function (req,res,next) {
-  
-  next();
-});
 router.get('/', function(req,res){
   res.sendFile(paths + 'index.html');
   console.log(JSON.stringify("Header: " + res.header));
@@ -40,7 +37,13 @@ router.get('/admin', function(req,res){
 });
 
 
+router.get("/login", async function(req, res){
+  res.redirect(AUTH_CLIENT_URL + "/login")
+})
 
+router.get("/loggedIn", async function(req, res){
+  res.redirect(FRONTEND_URL)
+})
 
 
 

@@ -1,6 +1,7 @@
 import express from 'express';
 import {parse, stringify, toJSON, fromJSON} from 'flatted';
 import {userCache} from './userRoute.js'
+import { SHOPPING_URL } from './constants.js';
 
 
 const productRouter = express.Router();
@@ -52,7 +53,7 @@ productRouter.post("/newProduct", function(req, res){
 })
 
 async function fetchAllProduct() {
-  const url = "http://192.168.1.235:8060/api/product/public/all";
+  const url = SHOPPING_URL + "/api/product/public/all";
   const response = await fetch(url, {
     method: "GET",
     
@@ -69,7 +70,7 @@ async function addProduct(data) {
   console.log("sessionId: " + sessionId)
   console.log("product: " + JSON.stringify(product))
 
-  var url = "http://192.168.1.235:8060/api/product/private";
+  var url = SHOPPING_URL + "/api/product/private";
   let token = userCache.get(sessionId);
   token = JSON.parse(token);
   console.log("token: " + token)
@@ -86,7 +87,7 @@ async function addProduct(data) {
 }
 
 async function fetchAllCategories() {
-  const url = "http://192.168.1.235:8060/api/category/public/names";
+  const url = SHOPPING_URL + "/api/category/public/names";
 
   const response = await fetch(url, {
     method: "GET",
