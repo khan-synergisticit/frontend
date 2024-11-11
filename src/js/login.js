@@ -7,7 +7,7 @@ async function logout(){
   let user_data = {"userData" : userData}
   const session = {"sessionId": sessionId}
   console.log("sessionId: " + sessionId)
-  var url = "/api/user/logout?sessionId=" + sessionId;
+  var url = "/api/user/logout"; //?sessionId=" + sessionId;
 
     await fetch(url, {
       method: "GET",
@@ -19,7 +19,7 @@ async function logout(){
           sessionStorage.removeItem("user_email");
           sessionStorage.removeItem("user_id");
           sessionStorage.removeItem("user_role");
-          window.location.replace("http://192.168.1.69:8080");
+          window.location.replace("http://localhost:8080");
     }).catch((error)=>{
       console.log("Logout error: " + error)
     }).finally((_) =>{
@@ -62,7 +62,8 @@ function init(){
       sessionStorage.setItem("user_role", data.role);
       sessionStorage.setItem("sessionId", data.sessionId)
       sessionStorage.setItem("user_data", JSON.stringify(data))
-      }
+      window.location.replace("http://localhost:8080");
+    }
     })
   })
   // fetch("api/user/data",
