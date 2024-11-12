@@ -19,7 +19,7 @@ async function logout(){
           sessionStorage.removeItem("user_email");
           sessionStorage.removeItem("user_id");
           sessionStorage.removeItem("user_role");
-          window.location.replace("http://10.96.0.4:8080");
+          window.location.replace("http://127.0.0.1:8080");
     }).catch((error)=>{
       console.log("Logout error: " + error)
     }).finally((_) =>{
@@ -62,7 +62,7 @@ function init(){
       sessionStorage.setItem("user_role", data.role);
       sessionStorage.setItem("sessionId", data.sessionId)
       sessionStorage.setItem("user_data", JSON.stringify(data))
-      window.location.replace("http://10.96.0.4:8080");
+      window.location.replace("http://127.0.0.1:8080");
     }
     })
   })
