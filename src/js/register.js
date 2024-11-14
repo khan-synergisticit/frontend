@@ -39,34 +39,19 @@ $(function(){
 
 
 async function saveRegistration(data) {
-
-  var url = AUTH_CLIENT_URL + "/save";
-  const credential = btoa('shopping:donkey');
   const header =  {
     // "Authorization": "Basic " + credential,
      "Content-Type": "application/json",
      'Access-Control-Allow-Origin': '*',
       'Access-Control-Allow-Methods': "GET,POST,OPTIONS,DELETE,PUT",
   }
-  const response = await fetch(url, {
+  const response = await fetch("/api/user/save", {
   method: "POST",
-  headers:header,
+  headers: header,
   
   body: JSON.stringify(data),
   
   })
     return await response.json();
 
-  //  return await $.ajax({
-  //     url: url,
-  //     header: header,
-  //     type: "POST",
-  //     data: data,
-  //     dataType: "jsonp",
-  //     success: function(data, status, xhr){
-  //       console.log("success: " + JSON.stringify(data))
-  //     }
-  //   }).fail(function(data){
-  //     console.log("Failed: " + JSON.stringify(data))
-  //   })
 }

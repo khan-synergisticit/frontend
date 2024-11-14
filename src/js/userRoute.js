@@ -54,7 +54,19 @@ userRouter.post("", (req, res) => {
   res.send('Data received successfully');
 })
 
-
+userRouter.post("/save", function(req, res){
+  console.log('req: ' + req)
+  let request = toJSON(req);
+  request = request[15]
+  saveRegistration(request)
+  .then((data) => {
+    console.log("save: " + JSON.stringify(data))
+    res.send(data)
+  })
+  // console.log("res" + stringify(request))
+  // var url = AUTH_CLIENT_URL + "/save";
+  // res.redirect(url);
+})
 
 userRouter.get("/logout", function (req, res){
 
@@ -69,7 +81,7 @@ userRouter.get("/logout", function (req, res){
   });
   let obj = toJSON(req)
   for(let i = 0; i < obj.length; i++){
-    console.log(i + " logout: " + stringify(obj[i]))
+    console.log(i + " logout: " + obj[i])
   }
   // let sessionId = String(obj[45]); 
   // res.setHeader
@@ -103,6 +115,27 @@ async function fetchUser(token) {
         return data;
       })
   }
+}
+
+async function saveRegistration(data) {
+
+  var url = AUTH_CLIENT_URL + "/save";
+  const credential = btoa('shopping:donkey');
+  const header =  {
+    // "Authorization": "Basic " + credential,
+     "Content-Type": "application/json",
+     'Access-Control-Allow-Origin': '*',
+      'Access-Control-Allow-Methods': "GET,POST,OPTIONS,DELETE,PUT",
+  }
+  const response = await fetch(url, {
+  method: "POST",
+  headers:header,
+  
+  body: data,
+  
+  })
+    return await response.json();
+
 }
 
 async function logout(key){

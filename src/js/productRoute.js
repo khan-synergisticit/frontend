@@ -54,14 +54,19 @@ productRouter.post("/newProduct", function(req, res){
 
 async function fetchAllProduct() {
   const url = SHOPPING_URL + "/api/product/public/all";
-  const response = await fetch(url, {
+  
+  return await fetch(url, {
     method: "GET",
-    
     headers: {
-      "Access-Control-Allow-Origin": "*",
+     "Access-Control-Allow-Origin": "*",
       }
     })
-      return await response.json();
+    .then(response => response.json())
+    .catch(error => console.log("fetch product error: " + error))
+    .then(data => {
+      return data;
+    })
+ 
 }
 
 async function addProduct(data) {
@@ -89,14 +94,17 @@ async function addProduct(data) {
 async function fetchAllCategories() {
   const url = SHOPPING_URL + "/api/category/public/names";
 
-  const response = await fetch(url, {
+  return await fetch(url, {
     method: "GET",
-  
     headers: {
-      "Access-Control-Allow-Origin": "*",
+     "Access-Control-Allow-Origin": "*",
       }
     })
-      return await response.json();
+    .then(response => response.json())
+    .catch(error => console.log("fetch category error: " + error))
+    .then(data => {
+      return data;
+    })
   
 }
 
