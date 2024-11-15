@@ -1,10 +1,11 @@
-const FRONTEND_BASE = "192.168.1.69"
-const LOCALHOST = "http://" + FRONTEND_BASE;
+const LOCALBASE = "127.0.0.1"
+const LOCALHOST = "http://" + LOCALBASE;
 const AUTH_CLIENT_URL = LOCALHOST + ":8090"; // "http://10.96.0.12:8090"
 const AUTH_SERVER_URL = LOCALHOST + ":8040"; // "http://10.96.0.11:8040"
 const SHOPPING_URL = LOCALHOST + ":8060";// "http://10.96.0.13:8060"
 
-const FRONTEND_URL = LOCALHOST +":8080"
+const FRONTEND_BASE = "192.168.1.69"
+const FRONTEND_URL = 'http://' + FRONTEND_BASE +":8080"
 const COOKIE_KEY = "JSESSIONID"
 export {
   AUTH_CLIENT_URL,
