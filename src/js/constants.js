@@ -1,4 +1,4 @@
-const LOCALBASE = "0.0.0.0"
+const LOCALBASE = "127.0.0.1"
 const LOCALHOST = "http://" + LOCALBASE;
 const AUTH_CLIENT_URL = LOCALHOST + ":8090"; // "http://10.96.0.12:8090"
 const AUTH_SERVER_URL = LOCALHOST + ":8040"; // "http://10.96.0.11:8040"
