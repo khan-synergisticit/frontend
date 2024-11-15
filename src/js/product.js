@@ -53,7 +53,7 @@ let productBlock = (data) =>{
   return   '<div class="col-md-3 mt-2" >' + 
 										'<div class="card card-sh">' + 
 											'<div class="card-body text-center">' +
-												'<img alt="" src="../img/product_img/' + data.imageName + '" width="150px" height="150px"/>'+
+												'<img alt="" src="./img/product_img/' + data.imageName + '" width="150px" height="150px"/>'+
 												'<p class="fs-5 text-center">' + data.name + '</p>'+
 												'<div class="row text-center">' +
 													
