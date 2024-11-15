@@ -4,6 +4,10 @@ $(function(){
     type: "GET",
     success: function(data, status, xhr){
       console.log("Product Data: " + JSON.stringify(data))
+      $.each(data, function(idx, d){          
+        var productCategory = $("#product-card");
+        productCategory.append(productBlock(data));
+       })
       // console.log("status: " + JSON.stringify(status))
       // console.log("xhr: " + JSON.stringify(xhr))
     }
@@ -44,6 +48,21 @@ $(function(){
     
   })
 })
+
+let productBlock = (data) =>{
+  return   '<div class="col-md-3 mt-2" >' + 
+										'<div class="card card-sh">' + 
+											'<div class="card-body text-center">' +
+												'<img alt="" src="../img/product_img/' + data.imageName + '" width="150px" height="150px"/>'+
+												'<p class="fs-5 text-center">' + data.name + '</p>'+
+												'<div class="row text-center">' +
+													
+													
+												'</div>' +
+											'</div>'+
+										'</div>'+
+									'</div>'
+}
 
 async function saveProduct(data) {
     const url = '/api/product/newProduct';
