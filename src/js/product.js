@@ -6,7 +6,7 @@ $(function(){
       console.log("Product Data: " + JSON.stringify(data))
       $.each(data, function(idx, d){          
         var productCategory = $("#product-card");
-        productCategory.append(productBlock(data));
+        productCategory.append(productBlock(d));
        })
       // console.log("status: " + JSON.stringify(status))
       // console.log("xhr: " + JSON.stringify(xhr))
