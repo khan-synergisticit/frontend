@@ -50,6 +50,7 @@ $(function(){
 })
 
 let productBlock = (data) =>{
+  console.log( " product block " + JSON.stringify(data))
   return   '<div class="col-md-3 mt-2" >' + 
 										'<div class="card card-sh">' + 
 											'<div class="card-body text-center">' +
